@@ -1,0 +1,272 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.m {
+    width: 100%;
+    height: 861px;
+    /*background-color: rgb(241, 246, 249);*/
+    background-color: #DDDDDD;
+    position: relative;
+}
+
+.dl {
+    width: 400px;
+    height: 480px;
+    background-color: rgb(255, 255, 255);
+    margin: auto;
+    position: relative;
+    top: 120px;
+}
+
+p {
+    position: relative;
+    font-size: 20px;
+    text-align: center;
+    top: 30px;
+    display: block;
+}
+
+.user {
+    position: relative;
+    top: 30px;
+    left: 40px;
+    width: 320px;
+    height: 50px;
+    margin-top: 5px;
+    border: 1px solid rgb(217, 217, 217);
+}
+
+#user {
+    width: 240px;
+    height: 48px;
+    display: flex;
+    float: right;
+    margin-right: 40px;
+    outline: none;
+    border: none;
+}
+
+.s1 {
+    position: relative;
+    margin-left: 120px;
+    top: 30px;
+    font-size: 12px;
+    color: red;
+}
+
+.password {
+    position: relative;
+    top: 30px;
+    left: 40px;
+    width: 320px;
+    height: 50px;
+    margin-top: 5px;
+    border: 1px solid rgb(217, 217, 217);
+}
+
+#password {
+    width: 240px;
+    height: 48px;
+    display: flex;
+    float: right;
+    margin-right: 40px;
+    outline: none;
+    border: none;
+}
+
+.s2 {
+    position: relative;
+    margin-left: 120px;
+    top: 30px;
+    font-size: 12px;
+    color: red;
+}
+
+.yz {
+    position: relative;
+    top: 30px;
+    left: 40px;
+    width: 140px;
+    height: 50px;
+    margin-top: 5px;
+    border: 1px solid rgb(217, 217, 217);
+}
+
+#yz {
+    width: 120px;
+    height: 48px;
+    display: flex;
+    margin-left: 10px;
+    outline: none;
+    border: none;
+    text-align: center;
+    color: rgb(69, 119, 208);
+}
+
+.s3 {
+    display: flex;
+    position: relative;
+    top: 35px;
+    margin-left: 120px;
+    font-size: 12px;
+    color: red;
+}
+
+.yzm {
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+    top: -38px;
+    left: 240px;
+    width: 100px;
+    height: 50px;
+    border: 1px solid rgb(217, 217, 217);
+}
+
+.yzm div {
+    user-select: none;
+    margin-top: 8px;
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+    outline: none;
+    border: none;
+    font-size: 25px;
+    color: rgb(69, 119, 208);
+}
+
+.check {
+    display: flex;
+    margin-top: -10px;
+    width: 100%;
+    height: 20px;
+    position: relative;
+    top: 20px;
+    margin-left: 40px;
+}
+
+.check input {
+    width: 14px;
+    height: 14px;
+    position: relative;
+    top: 2px;
+}
+
+.check b {
+    font-weight: normal;
+    font-size: 13px;
+    margin-left: 5px;
+}
+
+#btn {
+    width: 320px;
+    height: 50px;
+    margin-left: 40px;
+    position: relative;
+    top: 35px;
+    background-color: rgb(56, 126, 232);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 15px;
+    cursor: pointer;
+}
+
+.djzc {
+    width: 100%;
+    position: relative;
+    margin-left: 40px;
+    top: 45px;
+}
+
+.djzc span {
+    font-size: 14px;
+}
+
+.x1 {
+    color: blue;
+    cursor: pointer;
+}
+
+.djzc a {
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(68, 119, 208);
+    margin-left: 115px;
+}
+
+
+/*注册*/
+
+.zc {
+    width: 480px;
+    height: 600px;
+    margin: 0 auto;
+    text-align: right;
+    background-color: white;
+    position: relative;
+    top: 120px;
+}
+
+table {
+    text-align: center;
+}
+
+tr {
+    height: 80px;
+}
+
+td:first-of-type {
+    text-align: right;
+}
+
+td input {
+    width: 200px;
+    height: 30px;
+    text-indent: 5px;
+    margin-top: 23px;
+}
+
+#cw {
+    font-size: 12px;
+    color: red;
+}
+
+.sub1 {
+    display: inline-block;
+    width: 120px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 5px;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    background-color: rgb(56, 126, 232);
+    cursor: pointer;
+}
+
+.sub2 {
+    width: 200px;
+    height: 40px;
+    outline-style: none;
+    border: none;
+    background-color: rgb(56, 126, 232);
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    margin: 30px 160px 0 0;
+    cursor: pointer;
+}
+
+.x2 {
+    color: blue;
+    cursor: pointer;
+}

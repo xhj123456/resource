@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <meta name="keywords" content="个人博客"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="layui-master/dist/css/layui.css"/>
+    <script type="text/javascript" src="js/jquery1.42.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="layui-master/dist/layui.js"></script>
+    <script src="js/html5.js"></script>
+</head>
+<body>
+<!--<p th:text="${All}"></p>-->
+<div id="header">
+    <h1><span th:text="${All.user}"></span>的博客</h1>
+    <p>青春是打开了,就合不上的书。人生是踏上了，就回不了头的路，爱情是扔出了，就收不回的赌注。</p>
+</div>
+<div id="nav">
+    <ul>
+        <li><a href="index">文章</a></li>
+        <li><a href="shuo">微语</a></li>
+        <li><a href="xc">相册展示</a></li>
+        <li><a href="guestbook">留言板</a></li>
+        <li class="fabu" th:if="${All.user01}!=0"><a href="fb">发布</a></li>
+        <li><a href="abouts">关于我</a></li>
+        <li class="tc" th:if="${All.user01}!=0"><a href="dlzc.html">退出</a></li>
+        <li class="dlzc2" th:if="${All.user01}==0"><a href="dlzc.html">登录/注册</a></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div id="content">
+    <div class="left" id="guestbook">
+        <div class="weizi">
+            <div class="wz_text">当前位置：><h1>留言板</h1></div>
+        </div>
+        <div class="g_content">
+            有什么想对我说的嘛？
+        </div>
+    </div>
+    <div class="right" id="c_right">
+        <div class="s_about">
+            <h2>关于博主</h2>
+            <img src="images/回锅肉.jpg" width="230" height="230" alt="博主"/>
+            <p>博主：<span class="user"></span></p>
+            <p>职业：<span class="Occup"></span></p>
+            <p>简介：<span class="intr"></span></p>
+        </div>
+        <div class="lanmubox">
+            <div class="hd">
+                <ul>
+                    <li>精心推荐</li>
+                    <li>最新文章</li>
+                    <li class="hd_3">随机文章</li>
+                </ul>
+            </div>
+            <div class="bd">
+                <ul>
+                    <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+                    <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+                    <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                    <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+                    <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+                    <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+                    <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                    <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+                    <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+                </ul>
+                <ul>
+                    <li><a href="#" title="网站项目实战开发（-）">网站项目实战开发（-）</a></li>
+                    <li><a href="#" title="关于响应式布局">关于响应式布局</a></li>
+                    <li><a href="#" title="如何创建个人博客网站">如何创建个人博客网站</a></li>
+                    <li><a href="#" title="网站项目实战开发（二）">网站项目实战开发（二）</a></li>
+                    <li><a href="#" title="为什么新站前期排名老是浮动？(转)">为什么新站前期排名老是浮动？(转)</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="demo3" style="margin: 0 auto;"></div>
+</div>
+<script type="text/javascript">jQuery(".lanmubox").slide({easing: "easeOutBounce", delayTime: 400});</script>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript" src="js/guestbook.js"></script>
+<script type="text/javascript" src="js/loginreg.js"></script>
+<script type="text/javascript">
+    layui.use(['laypage', 'layer'], function () {
+        var laypage = layui.laypage
+            , layer = layui.layer;
+        laypage.render({
+            elem: 'demo3'
+            , count: 1
+            , first: '首页'
+            , last: '尾页'
+            , layout: ['prev', 'page', 'next', 'skip']
+            , jump: function (obj) {
+                console.log(obj)
+            }
+        });
+    });
+</script>
+</body>
+</html>
+

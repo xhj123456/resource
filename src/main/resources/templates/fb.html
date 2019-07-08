@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>关于我</title>
+    <meta name="keywords" content="个人博客"/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/fb.css"/>
+    <link rel="stylesheet" href="layui-master/dist/css/layui.css"/>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="layui-master/dist/layui.js"></script>
+
+</head>
+
+<body>
+<!--<p th:text="${All}"></p>-->
+<div id="header">
+    <h1><span th:text="${All.user}"></span>的博客</h1>
+    <p>青春是打开了,就合不上的书。人生是踏上了，就回不了头的路，爱情是扔出了，就收不回的赌注。</p>
+</div>
+<div id="nav">
+    <ul>
+        <li><a href="index">文章</a></li>
+        <li><a href="shuo">微语</a></li>
+        <li><a href="xc">相册展示</a></li>
+        <li><a href="guestbook">留言板</a></li>
+        <li class="fabu" th:if="${All.user01}!=0"><a href="fb">发布</a></li>
+        <li><a href="abouts">关于我</a></li>
+        <li class="tc" th:if="${All.user01}!=0"><a href="dlzc.html">退出</a></li>
+        <li class="dlzc2" th:if="${All.user01}==0"><a href="dlzc.html">登录/注册</a></li>
+        <div class="clear"></div>
+    </ul>
+</div>
+<div id="content">
+    <div class="left" id="about_me" style="width: 830px">
+        <div class="weizi">
+            <div class="wz_text">当前位置：<h1>发布</h1></div>
+        </div>
+        <div class="about_content" th:if="${All.user01}==0" style="text-align: center;font-size: 30px">请登录</div>
+        <div class="about_content" th:if="${All.user01}!=0">
+            <div class="classify">
+                <span class="wz" id="a">文章</span><br/><br/><span class="xq" id="a">心情</span><br/><br/>
+                <span class="xc" id="a">相册</span>
+            </div>
+            <div class="rig1">标题
+                <form id="form1" action="sub1" enctype="multipart/form-data" method="post">
+                    <input name="title" type="text"/><br/>
+                    <input name="filename" type="file">
+                    <textarea name="Article_content" placeholder="文章具体内容"></textarea><br/>
+                    <input type="submit" value="发布"/><span class="s1"></span>
+                </form>
+            </div>
+            <div class="rig2">心情
+                <input class="mood" type="text"/><br/>
+                <input class="sub2" type="submit" value="发布"/><span class="s2"></span>
+            </div>
+            <div class="rig3">相册
+                <form id="form3" action="upload" enctype="multipart/form-data" method="post">
+                    <input class="xcfilepath" type="file" name="filename" multiple="multiple"/><br/>
+                    <button>上传</button>
+                    <span class="s3"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript" src="js/fb.js"></script>
+</body>
+</html>

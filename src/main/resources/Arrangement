@@ -1,0 +1,54 @@
+我的博客放到别人主页中显示，提供一个链接地址。如果被访问，
+根据session判断是否是登录用户。如果是游客则默认访问为index页面（该页面展示为"吴远航"的页面）。
+隐藏发布、关于我=》保存、退出。显示登录/注册链接。
+如果是登录用户则显示发布、关于我=》保存、退出。隐藏登录/注册链接。
+
+数据库：
+
+myblog表:user:用户名 password:密码 email:邮箱 hobby:爱好 introduce:介绍 age:年龄
+skill:技能 telephonenumber:电话号码
+create table myblog(id int primary key auto_increment,user varchar(255) not null unique ,password varchar(255) not null ,email varchar(255) not null unique );
+create table fb(uid int not null ,user varchar(255) not null unique,title varchar(255),wzfilepath varchar(255),Article_content varchar(255),mood varchar(255),xcfilepath varchar(255));
+
+随笔：
+1 sql语句写完先在数据库测试语句是否正确
+2 两个String比较用equals
+3 增删改返回int>0，select返回查询结果集
+4  判断游客还是用户：用户登录后 你用session存储了用户的对象，把用户的权限也放到session中，
+    然后每个页面的顶部 都做个判断，在页面中 用session获得登录用户的对象和权限，
+    然后判断权限，如果有权限就继续执行，不能访问则跳转到其他页面。
+5  Session作为域对象，作用范围就是一次会话的范围。
+    一次会话，指的是用户打开浏览器点击多个超链接，访问服务器资源，到最后关闭浏览器的过程
+6  修改字段名称和属性： ALTER TABLE 表名 CHANGE 原字段名 新字段名 字段类型 约束条件
+        -- 修改字段属性
+        -- ALTER TABLE tb_name MODIFY 字段名称 字段类型 [完整性约束条件]
+        -- 将email字段 VARCHAR(50)修改成VARCHAR(200)
+        -- 注意，修改时如果不带完整性约束条件，原有的约束条件将丢失，如果想保留修改时就得带上完整性约束条件
+        添加表字段 alter table table1 add transactor varchar(10) not Null;
+7 发表失败数据是传不回data的。要跳转404只能在server层跳转
+8  <resultMap id="mybl" type="com.pojo.Myblog01">
+          <id property="id" column="id"/>       这句代码意思是把表的id当成主键
+          <result property="user" column="user"/>
+          <collection property="xx" ofType="com.pojo.xx"  >
+              <!--<id property="uid" column="uid"/>-->      遇到明明有多条数据。结果只赋了第一条回来。是因为把主键设置错了
+9 不用专门弄一个404网页。 springboot 自带跳转error页面功能(前提是你有error页面);
+10 <img th:src="@{/img/research/{filename}(filename=${research.filename})}">
+ <a th:href="@{'https://'+${url.url}}" th:text="${url.urlName}"></a>
+
+11 图片之类的上传到服务器后。要在页面中显示，常用思路：配置一个虚拟路径。
+    在网页中。src看到的是一个虚拟路径。实际是通过这个虚拟路径找到绝对路径来进行显示。
+    upload 此项目中的虚拟路径。后面盘符是绝对路径
+    registry.addResourceHandler("/upload/**").addResourceLocations("file:D:/IDEA/MyBlog/target/classes/upload/");
+    但是做了此虚拟路径后会拦截其他访问static路径下的内容。还应该对static放行
+    registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
+
+12 数据不多，用集合分页：
+    将sql查询到的数据存到集合中
+    通过接收currPage参数表示显示第几页的数据，pageSize表示每页显示的数据条数
+    通过subList（firstIndex,lastIndex）方法获取两索引之间的所有数据;
+13 用集合去装数据不能实时显示。这时Sql语句分页技术横空出世
+14 The field filename exceeds its maximum permitted size of 1048576 bytes.此异常：
+    字段文件名超过其允许的最大大小1048576字节。springboot中需要在application中配置
+    spring.servlet.multipart.max-file-size=10MB 来解决此问题
+
+15 留言未完成、下载未完成、 修改头像未完成、

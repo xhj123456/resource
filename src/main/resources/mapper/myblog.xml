@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MyBlogDao"><!--namespace命名空间-->
+    <select id="getArticle" resultMap="getMybAri">
+        select p.id,p.user,p.introduce,p.Occupation,p.title,p.wzfilepath,p.Article_content,p.time from
+        (select * from  myblog m left join wz on m.id=wz.uid ) p where p.user=#{user} limit #{currtpage},#{pagesize};
+    </select>
+    <resultMap id="getMybAri" type="com.pojo.Myblog01">
+        <id property="id" column="id"/>
+        <result property="user" column="user"/>
+        <result property="introduce" column="introduce"/>
+        <result property="Occupation" column="Occupation"/>
+        <collection property="articles" ofType="com.pojo.Article">
+            <result property="title" column="title"/>
+            <result property="wzfilepath" column="wzfilepath"/>
+            <result property="Article_content" column="Article_content"/>
+            <result property="time" column="time"/>
+        </collection>
+    </resultMap>
+    <select id="getMood" resultMap="getMood1">
+    select p.id,p.user,p.mood,p.time from
+     (select * from myblog left join xq on myblog.id=xq.uid) p where p.user=#{user} limit #{currtpage},#{pagesize};
+    </select>
+    <resultMap id="getMood1" type="com.pojo.Myblog01">
+        <id property="id" column="id"/>
+        <result property="user" column="user"/>
+        <collection property="moods" ofType="com.pojo.Mood">
+            <result property="mood" column="mood"/>
+            <result property="time" column="time"/>
+        </collection>
+    </resultMap>
+    <select id="getxc" resultMap="getxc1">
+    select p.id,p.user,p.xcfilepath,p.time from
+     (select * from myblog left join xc on myblog.id=xc.uid) p where p.user=#{user};
+    </select>
+    <resultMap id="getxc1" type="com.pojo.Myblog01">
+        <id property="id" column="id"/>
+        <result property="user" column="user"/>
+        <collection property="xcs" ofType="com.pojo.Xc">
+            <result property="xcfilepath" column="xcfilepath"/>
+            <result property="time" column="time"/>
+        </collection>
+    </resultMap>
+</mapper>
